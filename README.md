@@ -60,13 +60,13 @@ Provider: **Groq** (`openai/gpt-oss-120b`) first, **Google Gemini** (`gemini-3.5
 Hosted demo: **https://weilunli.me/senderbond**
 
 1. **Sender** → pick a preset ("Opt-in newsletter" or "Spammy promo blast") → **Review & price my bond**. Read the AI review and the bond price.
-2. Click **Pay with PayPal**. In the PayPal sandbox window either log in with the sandbox buyer below, or choose **Pay with Debit or Credit Card** and use PayPal's sandbox test card `4012888888881881`, any future expiry, CVV `123`, any US address (turn off "create your PayPal account").
+2. Click **Pay with PayPal**. In the PayPal **sandbox** window, log in with the sandbox buyer account below and press **Complete Purchase** (pay with the sandbox PayPal balance).
 3. **Send** the campaign.
 4. Open **Inbox** in another tab. As Maya, Diego or Priya, open the email and **Report spam**, **Unsubscribe**, or **Reply** (try "I never signed up, stop emailing me").
 5. Back on the campaign, press **+24h** or **Close window & settle**. Watch PayPal void or capture the bond and pay reporter rewards.
 6. **ESP console** shows every bond, complaint rate, PayPal capture and payout. **Reset demo** clears it for the next person.
 
-Sandbox buyer account: _to be added_
+**Sandbox buyer account:** the login is in the Devpost submission's testing instructions (PayPal sandbox only, fake money). Any PayPal sandbox personal account works too.
 
 What is simulated: a campaign goes to N recipients, of which three are live demo inboxes. The rest of the list is a clearly labelled simulation whose reaction rates depend on the "Simulated audience" demo control (opted-in vs scraped). The AI never sees that setting; like a real ESP it only judges the email. The 72-hour window runs on a demo clock.
 

@@ -37,3 +37,9 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Demo video tooling and outputs (large, not part of the app)
+/video/
+
+# Devpost draft (contains the sandbox test login)
+DEVPOST.md
