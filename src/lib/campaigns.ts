@@ -355,10 +355,11 @@ export async function settleCampaign(id: string) {
   } else {
     const capture = await captureAuthorization(c.authorization_id, capturedCents);
     paypalCaptureId = capture.id;
+    const rest = c.bond_cents - capturedCents;
     logEvent(
       id,
       "paypal",
-      `Captured $${usd(capturedCents)} of $${usd(c.bond_cents)} (capture ${capture.id}); the rest was released`,
+      `Captured $${usd(capturedCents)} of $${usd(c.bond_cents)} (capture ${capture.id})${rest > 0 ? `; $${usd(rest)} released to sender` : ""}`,
     );
   }
 

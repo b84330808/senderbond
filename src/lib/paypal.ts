@@ -87,7 +87,8 @@ export function createBondOrder(opts: { campaignId: string; amountCents: number;
         },
       },
     },
-    `order-${opts.campaignId}-${opts.amountCents}`,
+    // Fresh order per attempt: after a declined card the buyer must start over.
+    `order-${opts.campaignId}-${Date.now()}`,
   );
 }
 

@@ -104,28 +104,28 @@ export default function EspPage() {
 
   const payoutCols = useMemo<ColDef<PayoutRow>[]>(
     () => [
-      { field: "persona_name", headerName: "Reporter", width: 130 },
-      { field: "subject", headerName: "Campaign", flex: 1, minWidth: 200 },
-      { field: "amount_cents", headerName: "Reward", width: 100, valueFormatter: (p) => money(p.value) },
+      { field: "persona_name", headerName: "Reporter", width: 120 },
+      { field: "amount_cents", headerName: "Reward", width: 90, valueFormatter: (p) => money(p.value) },
       {
         field: "status",
         headerName: "PayPal status",
-        width: 130,
+        width: 120,
         cellRenderer: (p: { value: string }) => <Badge tone={p.value === "SUCCESS" ? "green" : "amber"}>{p.value}</Badge>,
       },
-      { field: "batch_id", headerName: "Payout batch", width: 160 },
+      { field: "batch_id", headerName: "Payout batch", width: 150 },
+      { field: "subject", headerName: "Campaign", flex: 1, minWidth: 180 },
     ],
     [],
   );
 
   const reporterCols = useMemo<ColDef<Reporter>[]>(
     () => [
-      { field: "name", headerName: "Recipient", width: 130 },
-      { field: "received", headerName: "Received", width: 100 },
-      { field: "reported", headerName: "Reported", width: 100 },
+      { field: "name", headerName: "Recipient", width: 120 },
+      { field: "received", headerName: "Received", width: 95 },
+      { field: "reported", headerName: "Reported", width: 95 },
       {
         headerName: "Report rate",
-        width: 110,
+        width: 105,
         valueGetter: (p) => (p.data && p.data.received ? p.data.reported / p.data.received : 0),
         valueFormatter: (p) => pct(p.value, 0),
       },
