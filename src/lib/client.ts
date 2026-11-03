@@ -2,8 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+// next/link and the router add basePath automatically; fetch does not.
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export async function api<T>(url: string, init?: { method?: string; body?: unknown }): Promise<T> {
-  const res = await fetch(url, {
+  const res = await fetch(url.startsWith("/") ? `${BASE_PATH}${url}` : url, {
     method: init?.method ?? (init?.body ? "POST" : "GET"),
     headers: init?.body ? { "Content-Type": "application/json" } : undefined,
     body: init?.body ? JSON.stringify(init.body) : undefined,

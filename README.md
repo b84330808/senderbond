@@ -57,7 +57,7 @@ Provider: **Groq** (`openai/gpt-oss-120b`) first, **Google Gemini** (`gemini-3.5
 
 ## Try it (judges)
 
-Hosted demo: **_URL coming soon_**
+Hosted demo: **https://weilunli.me/senderbond**
 
 1. **Sender** → pick a preset ("Opt-in newsletter" or "Spammy promo blast") → **Review & price my bond**. Read the AI review and the bond price.
 2. Click **Pay with PayPal**. In the PayPal sandbox window either log in with the sandbox buyer below, or choose **Pay with Debit or Credit Card** and use PayPal's sandbox test card `4012888888881881`, any future expiry, CVV `123`, any US address (turn off "create your PayPal account").
@@ -92,8 +92,15 @@ npm run dev            # http://localhost:3000
 | `GROQ_API_KEY`, `GROQ_MODEL` | console.groq.com (free plan) |
 | `GEMINI_API_KEY`, `GEMINI_MODEL` | aistudio.google.com (free tier) |
 | `DATA_DIR` | optional, where the SQLite file lives (default `./data`) |
+| `NEXT_PUBLIC_BASE_PATH` | optional, build time: serve under a path prefix such as `/senderbond` |
 
 The sandbox business account behind the app needs a USD balance for Payouts.
+
+## Deploy
+
+`npm run build` produces a self-contained server in `.next/standalone` (`output: "standalone"`). Copy `.next/static` to `.next/standalone/.next/static` and `public` to `.next/standalone/public`, then run `node server.js` with the environment variables above and `PORT` / `HOSTNAME`.
+
+The hosted demo runs exactly that on a small Linux VM: Node 24 under systemd, behind Caddy and Cloudflare, built with `NEXT_PUBLIC_BASE_PATH=/senderbond`. A `render.yaml` Blueprint is also included for one-click deploys to Render (web service + 1 GB disk for SQLite).
 
 ## Architecture
 
